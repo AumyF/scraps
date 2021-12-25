@@ -1,0 +1,13 @@
+node_modules
+
+/.cache
+/.env*
+/build
+/dist
+/.mf
+/public/build
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
+**/supabase/.env
