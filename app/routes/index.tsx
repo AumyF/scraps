@@ -1,10 +1,9 @@
-import { PostgrestFilterBuilder } from "@supabase/postgrest-js";
-import { useEffect, useState } from "react";
 import { useLoaderData } from "remix";
 import { definitions } from "types/supabase";
 import { useSupabase } from "~/utils/supabase-client";
 import { supabase } from "~/utils/supabase.server";
 import { Temporal } from "@js-temporal/polyfill";
+import { Layout } from "~/components/layout";
 
 export async function loader() {
   // return { allScraps: await getAllScraps() };
@@ -53,8 +52,7 @@ export default function Index() {
   // });
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-3xl font-bold">Scrap</h1>
+    <Layout>
       <div>
         {loaderData.scraps.data?.map((scrap) => (
           <article
@@ -76,6 +74,6 @@ export default function Index() {
       <pre className="overflow-scroll">
         <code>{JSON.stringify(loaderData)}</code>
       </pre>
-    </div>
+    </Layout>
   );
 }

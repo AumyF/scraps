@@ -1,6 +1,7 @@
 import { VFC } from "react";
 import { json, LoaderFunction, useLoaderData } from "remix";
 import { definitions } from "types/supabase";
+import { Layout } from "~/components/layout";
 import { supabase } from "~/utils/supabase.server";
 
 async function getScrap(id: string) {
@@ -28,12 +29,12 @@ const ScrapId: VFC = () => {
   const { data: scrap } = useLoaderData<{ data: LoaderData }>();
   console.log(JSON.stringify(scrap));
   return (
-    <div className="container mx-auto">
+    <Layout>
       <h1 className="text-3xl font-bold">{scrap.title}</h1>
       <div>
         <time>Created at {scrap.created_at}</time>
       </div>
-    </div>
+    </Layout>
   );
 };
 
