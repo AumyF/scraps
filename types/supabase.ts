@@ -16,6 +16,10 @@ export interface paths {
     get: {
       parameters: {
         query: {
+          id?: parameters["rowFilter.comments.id"];
+          created_at?: parameters["rowFilter.comments.created_at"];
+          body?: parameters["rowFilter.comments.body"];
+          scrap_id?: parameters["rowFilter.comments.scrap_id"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -65,6 +69,12 @@ export interface paths {
     };
     delete: {
       parameters: {
+        query: {
+          id?: parameters["rowFilter.comments.id"];
+          created_at?: parameters["rowFilter.comments.created_at"];
+          body?: parameters["rowFilter.comments.body"];
+          scrap_id?: parameters["rowFilter.comments.scrap_id"];
+        };
         header: {
           /** Preference */
           Prefer?: parameters["preferReturn"];
@@ -77,6 +87,12 @@ export interface paths {
     };
     patch: {
       parameters: {
+        query: {
+          id?: parameters["rowFilter.comments.id"];
+          created_at?: parameters["rowFilter.comments.created_at"];
+          body?: parameters["rowFilter.comments.body"];
+          scrap_id?: parameters["rowFilter.comments.scrap_id"];
+        };
         body: {
           /** comments */
           comments?: definitions["comments"];
@@ -191,7 +207,21 @@ export interface paths {
 }
 
 export interface definitions {
-  comments: { [key: string]: unknown };
+  comments: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: string;
+    created_at: string;
+    body: string;
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     * This is a Foreign Key to `scraps.id`.<fk table='scraps' column='id'/>
+     */
+    scrap_id: string;
+  };
   scraps: {
     /**
      * Note:
@@ -227,6 +257,10 @@ export interface parameters {
   limit: string;
   /** comments */
   "body.comments": definitions["comments"];
+  "rowFilter.comments.id": string;
+  "rowFilter.comments.created_at": string;
+  "rowFilter.comments.body": string;
+  "rowFilter.comments.scrap_id": string;
   /** scraps */
   "body.scraps": definitions["scraps"];
   "rowFilter.scraps.id": string;
