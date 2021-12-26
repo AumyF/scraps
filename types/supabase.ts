@@ -12,6 +12,86 @@ export interface paths {
       };
     };
   };
+  "/comments": {
+    get: {
+      parameters: {
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["comments"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** comments */
+          comments?: definitions["comments"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        body: {
+          /** comments */
+          comments?: definitions["comments"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
   "/scraps": {
     get: {
       parameters: {
@@ -111,6 +191,7 @@ export interface paths {
 }
 
 export interface definitions {
+  comments: { [key: string]: unknown };
   scraps: {
     /**
      * Note:
@@ -144,6 +225,8 @@ export interface parameters {
   offset: string;
   /** Limiting and Pagination */
   limit: string;
+  /** comments */
+  "body.comments": definitions["comments"];
   /** scraps */
   "body.scraps": definitions["scraps"];
   "rowFilter.scraps.id": string;

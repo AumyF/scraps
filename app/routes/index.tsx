@@ -62,7 +62,9 @@ export default function Index() {
             key={scrap.id}
           >
             <div>
-              <h2 className="text-2xl font-bold">{scrap.title}</h2>
+              <a href={`/scraps/${scrap.id}`}>
+                <h2 className="text-2xl font-bold">{scrap.title}</h2>
+              </a>
               <small className="text-sm">
                 Created {showTime(scrap.created_at, loaderData.nowTime)}
               </small>

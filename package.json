@@ -8,6 +8,7 @@
     "build:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --minify",
     "dev": "concurrently \"npm run dev:css\" \"remix watch\"",
     "dev:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --watch",
+    "generate-types": "openapi-typescript \"$SUPABASE_URL/rest/v1/?apikey=$SUPABASE_KEY\" --output types/supabase.ts",
     "postinstall": "remix setup cloudflare-workers",
     "build:worker": "esbuild --define:process.env.NODE_ENV='\"production\"' --minify --bundle --sourcemap --outdir=dist ./worker",
     "dev:worker": "esbuild --define:process.env.NODE_ENV='\"development\"' --bundle --sourcemap --outdir=dist ./worker",
