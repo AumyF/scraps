@@ -52,9 +52,13 @@ const ScrapId: VFC = () => {
           </div>
         ) : (
           comments.data.map((comment) => (
-            <div className="card" id={comment.id} key={comment.id}>
+            <div
+              className="card"
+              id={`#comment-${comment.id}`}
+              key={comment.id}
+            >
               <div className="text-sm">
-                <a href={`/scraps/${comment.scrap_id}#${comment.id}`}>
+                <a href={`/scraps/${comment.scrap_id}#comment-${comment.id}`}>
                   <time>Created at {comment.created_at}</time>
                 </a>
               </div>
