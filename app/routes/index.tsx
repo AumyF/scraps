@@ -53,10 +53,10 @@ export default function Index() {
 
   return (
     <Layout>
-      <div>
+      <div className="flex flex-col gap-2">
         {loaderData.scraps.data?.map((scrap) => (
           <article
-            className="flex justify-between items-center p-4"
+            className="flex justify-between items-center p-4 bg-gray-50 rounded-md"
             key={scrap.id}
           >
             <div>
@@ -71,9 +71,6 @@ export default function Index() {
           </article>
         ))}
       </div>
-      <pre className="overflow-scroll">
-        <code>{JSON.stringify(loaderData)}</code>
-      </pre>
     </Layout>
   );
 }
