@@ -1,9 +1,9 @@
-import { VFC } from "react";
+import { useState, VFC } from "react";
 import { json, LoaderFunction, useLoaderData } from "remix";
 import { definitions } from "types/supabase";
 import { Layout } from "~/components/layout";
 import { getComments, getScrap } from "~/utils/scrap";
-import { supabase } from "~/utils/supabase.server";
+import { useSupabase } from "~/utils/supabase-client";
 
 type LoaderResult<T> = { error: unknown; data: T };
 
@@ -26,6 +26,19 @@ export const loader = async ({ params }: Parameters<LoaderFunction>["0"]) => {
 const ScrapId: VFC = () => {
   const { scrap, comments } = useLoaderData<LoaderData>();
   console.log(comments);
+
+  const supabase = useSupabase();
+
+  const [body, setBody] = useState("");
+
+  const addNewComment = async () => {
+    await supabase.from<definitions["comments"]>("comments").insert({
+      scrap_id: scrap.data.id,
+      body,
+    });
+    setBody(() => "");
+  };
+
   return (
     <Layout>
       <div className="py-2">
@@ -55,9 +68,13 @@ const ScrapId: VFC = () => {
             id="new-comment"
             rows={10}
             placeholder="Add comment to the scrap"
+            value={body}
+            onChange={(v) => setBody(() => v.target.value)}
           ></textarea>
           <div className="flex justify-end">
-            <button className="button py-2 px-4">Post</button>
+            <button onClick={addNewComment} className="button py-2 px-4">
+              Post
+            </button>
           </div>
         </div>
       </div>
