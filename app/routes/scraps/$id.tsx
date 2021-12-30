@@ -33,16 +33,33 @@ const ScrapId: VFC = () => {
         <time>Created at {scrap.data.created_at}</time>
       </div>
       <div className="flex flex-col gap-2">
-        {comments.data.map((comment) => (
-          <div className="card" id={comment.id}>
-            <div className="text-sm">
-              <a href={`/scraps/${comment.scrap_id}#${comment.id}`}>
-                <time>Created at {comment.created_at}</time>
-              </a>
-            </div>
-            <div className="">{comment.body}</div>
+        {comments.data.length === 0 ? (
+          <div className="card">
+            <div className="text-center">There is no comments yet.</div>
           </div>
-        ))}
+        ) : (
+          comments.data.map((comment) => (
+            <div className="card" id={comment.id}>
+              <div className="text-sm">
+                <a href={`/scraps/${comment.scrap_id}#${comment.id}`}>
+                  <time>Created at {comment.created_at}</time>
+                </a>
+              </div>
+              <div className="">{comment.body}</div>
+            </div>
+          ))
+        )}
+        <div className="card">
+          <textarea
+            className="w-full p-2 rounded"
+            id="new-comment"
+            rows={10}
+            placeholder="Add comment to the scrap"
+          ></textarea>
+          <div>
+            <button className="button py-2 px-4">Post</button>
+          </div>
+        </div>
       </div>
     </Layout>
   );

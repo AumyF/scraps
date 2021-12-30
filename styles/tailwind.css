@@ -13,6 +13,15 @@ a:hover {
 
 @layer components {
   .card {
-    @apply bg-gray-50 p-4 rounded;
+    @apply bg-gray-50 p-4 rounded flex flex-col gap-2;
+  }
+  .button {
+    @apply transition-colors bg-red-500 rounded-md text-white;
+  }
+  .button:hover {
+    @apply bg-red-600;
+  }
+  .button:active {
+    @apply bg-red-700;
   }
 }
