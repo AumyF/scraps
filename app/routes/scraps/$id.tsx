@@ -2,27 +2,8 @@ import { VFC } from "react";
 import { json, LoaderFunction, useLoaderData } from "remix";
 import { definitions } from "types/supabase";
 import { Layout } from "~/components/layout";
+import { getComments, getScrap } from "~/utils/scrap";
 import { supabase } from "~/utils/supabase.server";
-
-async function getScrap(id: string) {
-  const scrap = await supabase
-    .from<definitions["scraps"]>("scraps")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  return scrap;
-}
-
-async function getComments(scrapId: string) {
-  const comments = await supabase
-    .from<definitions["comments"]>("comments")
-    .select("*")
-    .eq("scrap_id", scrapId)
-    .order("created_at");
-
-  return comments;
-}
 
 type LoaderResult<T> = { error: unknown; data: T };
 
