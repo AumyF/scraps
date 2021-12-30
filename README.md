@@ -1,3 +1,11 @@
+# Scrap
+
+## development
+
+Run `npm run dev`, `npm start` and `supabase start`, then open [localhost:8787](http://localhost:8787).
+
+---
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
