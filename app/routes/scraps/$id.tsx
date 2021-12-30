@@ -56,7 +56,7 @@ const ScrapId: VFC = () => {
             rows={10}
             placeholder="Add comment to the scrap"
           ></textarea>
-          <div>
+          <div className="flex justify-end">
             <button className="button py-2 px-4">Post</button>
           </div>
         </div>
