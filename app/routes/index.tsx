@@ -32,24 +32,12 @@ const showTime = (time: string, nowTime: string) => {
   else if (d.months > 0) return `${d.months} months ago`;
   else if (d.days > 0) return `${d.days} days ago`;
   else if (d.hours > 0) return `${d.hours} hours ago`;
+  else if (d.minutes > 0) return `${d.minutes} minutes ago`;
   else return `${d.seconds} seconds ago`;
 };
 
 export default function Index() {
   const loaderData = useLoaderData<Awaited<ReturnType<typeof loader>>>();
-  const supabase = useSupabase();
-
-  // const [data, setData] = useState<definitions["scraps"]>();
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await supabase
-  //       .from<definitions["scraps"]>("scraps")
-  //       .select("*");
-
-  //     setData(() => data)
-  //   })();
-  // });
 
   return (
     <Layout>
