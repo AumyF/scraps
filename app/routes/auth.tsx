@@ -1,4 +1,3 @@
-import { Form, useSubmit } from "remix";
 import { Layout } from "~/components/layout";
 import { useSupabase } from "~/utils/supabase-client";
 import { Auth } from "@supabase/ui";

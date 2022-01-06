@@ -18,8 +18,9 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.comments.id"];
           created_at?: parameters["rowFilter.comments.created_at"];
-          body?: parameters["rowFilter.comments.body"];
           scrap_id?: parameters["rowFilter.comments.scrap_id"];
+          user_id?: parameters["rowFilter.comments.user_id"];
+          body?: parameters["rowFilter.comments.body"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -72,8 +73,9 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.comments.id"];
           created_at?: parameters["rowFilter.comments.created_at"];
-          body?: parameters["rowFilter.comments.body"];
           scrap_id?: parameters["rowFilter.comments.scrap_id"];
+          user_id?: parameters["rowFilter.comments.user_id"];
+          body?: parameters["rowFilter.comments.body"];
         };
         header: {
           /** Preference */
@@ -90,8 +92,9 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.comments.id"];
           created_at?: parameters["rowFilter.comments.created_at"];
-          body?: parameters["rowFilter.comments.body"];
           scrap_id?: parameters["rowFilter.comments.scrap_id"];
+          user_id?: parameters["rowFilter.comments.user_id"];
+          body?: parameters["rowFilter.comments.body"];
         };
         body: {
           /** comments */
@@ -116,6 +119,7 @@ export interface paths {
           created_at?: parameters["rowFilter.scraps.created_at"];
           title?: parameters["rowFilter.scraps.title"];
           closed_at?: parameters["rowFilter.scraps.closed_at"];
+          user_id?: parameters["rowFilter.scraps.user_id"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -170,6 +174,7 @@ export interface paths {
           created_at?: parameters["rowFilter.scraps.created_at"];
           title?: parameters["rowFilter.scraps.title"];
           closed_at?: parameters["rowFilter.scraps.closed_at"];
+          user_id?: parameters["rowFilter.scraps.user_id"];
         };
         header: {
           /** Preference */
@@ -188,6 +193,7 @@ export interface paths {
           created_at?: parameters["rowFilter.scraps.created_at"];
           title?: parameters["rowFilter.scraps.title"];
           closed_at?: parameters["rowFilter.scraps.closed_at"];
+          user_id?: parameters["rowFilter.scraps.user_id"];
         };
         body: {
           /** scraps */
@@ -214,13 +220,13 @@ export interface definitions {
      */
     id: string;
     created_at: string;
-    body: string;
     /**
      * Note:
      * This is a Primary Key.<pk/>
-     * This is a Foreign Key to `scraps.id`.<fk table='scraps' column='id'/>
      */
     scrap_id: string;
+    user_id: string;
+    body: string;
   };
   scraps: {
     /**
@@ -231,6 +237,7 @@ export interface definitions {
     created_at: string;
     title: string;
     closed_at?: string;
+    user_id: string;
   };
 }
 
@@ -259,14 +266,16 @@ export interface parameters {
   "body.comments": definitions["comments"];
   "rowFilter.comments.id": string;
   "rowFilter.comments.created_at": string;
-  "rowFilter.comments.body": string;
   "rowFilter.comments.scrap_id": string;
+  "rowFilter.comments.user_id": string;
+  "rowFilter.comments.body": string;
   /** scraps */
   "body.scraps": definitions["scraps"];
   "rowFilter.scraps.id": string;
   "rowFilter.scraps.created_at": string;
   "rowFilter.scraps.title": string;
   "rowFilter.scraps.closed_at": string;
+  "rowFilter.scraps.user_id": string;
 }
 
 export interface operations {}
