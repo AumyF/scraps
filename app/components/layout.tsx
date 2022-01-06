@@ -4,6 +4,6 @@ import { Header } from "./header";
 export const Layout: VFC<PropsWithChildren<{}>> = ({ children }) => (
   <div>
     <Header />
-    <main className="container mx-auto">{children}</main>
+    <main className="max-w-6xl mx-auto">{children}</main>
   </div>
 );
