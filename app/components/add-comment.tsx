@@ -25,7 +25,7 @@ export const AddComment: VFC<{ scrapId: string }> = ({ scrapId }) => {
         onChange={(v) => setBody(() => v.target.value)}
       ></textarea>
       <div className="flex justify-end">
-        <button onClick={addNewComment} className="button">
+        <button onClick={addNewComment} className="button brand">
           Post
         </button>
       </div>

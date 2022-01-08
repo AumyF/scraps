@@ -7,7 +7,7 @@ export const Header: VFC = () => (
       <a href="/">
         <h1 className="text-3xl font-bold">Scrap</h1>
       </a>
-      <Link to="/scraps/new" className="button">
+      <Link to="/scraps/new" className="button brand">
         New Scrap
       </Link>
     </div>

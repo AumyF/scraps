@@ -18,10 +18,13 @@ a:hover {
   .button {
     @apply transition-colors bg-blue-500 rounded-md text-white py-2 px-4;
   }
-  .button:hover {
+  .button.brand {
+    @apply bg-blue-500 text-white;
+  }
+  .button.brand:hover {
     @apply bg-blue-600;
   }
-  .button:active {
+  .button.brand:active {
     @apply bg-blue-700;
   }
 }
