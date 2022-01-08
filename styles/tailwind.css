@@ -16,7 +16,16 @@ a:hover {
     @apply bg-gray-50 p-4 rounded flex flex-col gap-2;
   }
   .button {
-    @apply transition-colors bg-blue-500 rounded-md text-white py-2 px-4;
+    @apply transition-colors rounded-md py-2 px-4 shadow;
+  }
+  .button.secondary {
+    @apply bg-gray-100 text-gray-700;
+  }
+  .button.secondary:hover {
+    @apply bg-gray-50;
+  }
+  .button.secondary:active {
+    @apply bg-white;
   }
   .button.brand {
     @apply bg-blue-500 text-white;
