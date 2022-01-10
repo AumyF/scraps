@@ -1,6 +1,5 @@
 import { useLoaderData } from "remix";
 import { definitions } from "types/supabase";
-import { useSupabase } from "~/utils/supabase-client";
 import { supabase } from "~/utils/supabase.server";
 import { Temporal } from "@js-temporal/polyfill";
 import { Layout } from "~/components/layout";

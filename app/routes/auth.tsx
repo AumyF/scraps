@@ -1,7 +1,7 @@
 import { Layout } from "~/components/layout";
 import { useSupabase } from "~/utils/supabase-client";
 import { Auth } from "@supabase/ui";
-import { PropsWithChildren, useEffect, VFC } from "react";
+import { PropsWithChildren, VFC } from "react";
 
 const Inner: VFC<PropsWithChildren<{}>> = ({ children }) => {
   const { user } = Auth.useUser();

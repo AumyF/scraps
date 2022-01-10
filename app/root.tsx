@@ -2,7 +2,6 @@ import {
   Links,
   LinksFunction,
   LiveReload,
-  LoaderFunction,
   Meta,
   Outlet,
   Scripts,

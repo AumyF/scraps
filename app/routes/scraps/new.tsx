@@ -1,4 +1,4 @@
-import { Button, Input, Typography } from "@supabase/ui";
+import { Button } from "@supabase/ui";
 import { useState, VFC } from "react";
 import { useNavigate } from "remix";
 import { definitions } from "types/supabase";
@@ -11,7 +11,7 @@ const NewScrap: VFC = () => {
   const supabase = useSupabase();
   const navigate = useNavigate();
 
-  const titleEmpty = () => !Boolean(title);
+  const titleEmpty = () => !title;
 
   return (
     <Layout>
