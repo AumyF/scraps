@@ -26,10 +26,23 @@
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": [
+    "sort-keys-fix",
+    "simple-import-sort",
+    "sort-destructure-keys",
+    "typescript-sort-keys"
+  ],
   "rules": {
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/ban-types": "off"
+    "@typescript-eslint/ban-types": "off",
+
+    "sort-keys-fix/sort-keys-fix": "warn",
+
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+
+    "sort-destructure-keys/sort-destructure-keys": "warn",
+    "typescript-sort-keys/interface": "warn"
   }
 }

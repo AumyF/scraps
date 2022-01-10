@@ -1,3 +1,6 @@
+import { createClient } from "@supabase/supabase-js";
+import { PropsWithChildren, VFC } from "react";
+import type { MetaFunction } from "remix";
 import {
   Links,
   LinksFunction,
@@ -8,11 +11,9 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "remix";
-import type { MetaFunction } from "remix";
-import { SupabaseProvider } from "./utils/supabase-client";
-import { createClient } from "@supabase/supabase-js";
-import { PropsWithChildren, VFC } from "react";
+
 import styles from "./tailwind.css";
+import { SupabaseProvider } from "./utils/supabase-client";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -22,7 +23,7 @@ declare const SUPABASE_URL: string;
 declare const SUPABASE_KEY: string;
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ href: styles, rel: "stylesheet" }];
 };
 
 export const loader = () => {

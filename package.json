@@ -16,7 +16,8 @@
     "deploy": "npm run build && wrangler publish",
     "check:format": "prettier --check .",
     "check:lint": "eslint .",
-    "fix:format": "prettier --write ."
+    "fix:format": "prettier --write .",
+    "fix:lint": "eslint --fix ."
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.3.0",
@@ -40,6 +41,10 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sort-destructure-keys": "^1.4.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "eslint-plugin-unicorn": "^40.0.0",
     "miniflare": "2.0.0-next.3",
     "openapi-typescript": "^4.4.0",

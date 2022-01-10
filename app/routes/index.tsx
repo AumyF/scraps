@@ -1,15 +1,16 @@
+import { Temporal } from "@js-temporal/polyfill";
 import { useLoaderData } from "remix";
 import { definitions } from "types/supabase";
-import { supabase } from "~/utils/supabase.server";
-import { Temporal } from "@js-temporal/polyfill";
+
 import { Layout } from "~/components/layout";
+import { supabase } from "~/utils/supabase.server";
 
 export async function loader() {
   // return { allScraps: await getAllScraps() };
 
   return {
-    scraps: await getAllScraps(),
     nowTime: Temporal.Now.instant().toString(),
+    scraps: await getAllScraps(),
   };
 }
 

@@ -1,5 +1,6 @@
 import { useState, VFC } from "react";
 import { definitions } from "types/supabase";
+
 import { useSupabase } from "~/utils/supabase-client";
 
 export const AddComment: VFC<{ scrapId: string }> = ({ scrapId }) => {
@@ -8,8 +9,8 @@ export const AddComment: VFC<{ scrapId: string }> = ({ scrapId }) => {
 
   const addNewComment = async () => {
     await supabase.from<definitions["comments"]>("comments").insert({
-      scrap_id: scrapId,
       body,
+      scrap_id: scrapId,
     });
     setBody(() => "");
   };

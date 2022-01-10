@@ -1,20 +1,21 @@
 import { Reducer, useReducer, VFC } from "react";
 import { definitions } from "types/supabase";
+
 import { useSupabase } from "~/utils/supabase-client";
 
 type State = {
-  editting: boolean;
   content: string;
+  editting: boolean;
 };
 
 type Action =
   | {
       type: "reset";
     }
-  | { type: "startEdit"; oldTitle: string }
-  | { type: "update"; content: string };
+  | { oldTitle: string, type: "startEdit"; }
+  | { content: string, type: "update"; };
 
-const initialState = { editting: false, content: "" };
+const initialState = { content: "", editting: false };
 
 const reducer: Reducer<State, Action> = (_, action) => {
   switch (action.type) {
@@ -22,17 +23,17 @@ const reducer: Reducer<State, Action> = (_, action) => {
       return initialState;
     }
     case "startEdit": {
-      return { editting: true, content: action.oldTitle };
+      return { content: action.oldTitle, editting: true };
     }
     case "update": {
-      return { editting: true, content: action.content };
+      return { content: action.content, editting: true };
     }
   }
 };
 
-export const ScrapTitle: VFC<{ title: string; id: string }> = ({
-  title,
+export const ScrapTitle: VFC<{ id: string, title: string; }> = ({
   id,
+  title,
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const supabase = useSupabase();
@@ -46,8 +47,8 @@ export const ScrapTitle: VFC<{ title: string; id: string }> = ({
             value={state.content}
             onChange={(event) =>
               dispatch({
-                type: "update",
                 content: event.target.value,
+                type: "update",
               })
             }
             className="flex-1 p-2"
@@ -85,7 +86,7 @@ export const ScrapTitle: VFC<{ title: string; id: string }> = ({
           <button
             className="button secondary"
             onClick={() => {
-              dispatch({ type: "startEdit", oldTitle: title });
+              dispatch({ oldTitle: title, type: "startEdit" });
             }}
           >
             Edit

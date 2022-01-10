@@ -1,4 +1,5 @@
 import { definitions } from "types/supabase";
+
 import { supabase } from "~/utils/supabase.server";
 
 export async function getScrap(id: string) {

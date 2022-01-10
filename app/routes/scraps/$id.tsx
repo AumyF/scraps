@@ -1,16 +1,17 @@
 import { VFC } from "react";
 import { LoaderFunction, useLoaderData } from "remix";
 import { definitions } from "types/supabase";
+
 import { AddComment } from "~/components/add-comment";
 import { Layout } from "~/components/layout";
 import { ScrapTitle } from "~/components/scrap-title";
 import { getComments, getScrap } from "~/utils/scrap";
 
-type LoaderResult<T> = { error: unknown; data: T };
+type LoaderResult<T> = { data: T, error: unknown; };
 
 type LoaderData = {
-  scrap: LoaderResult<definitions["scraps"]>;
   comments: LoaderResult<definitions["comments"][]>;
+  scrap: LoaderResult<definitions["scraps"]>;
 };
 
 export const loader = async ({ params }: Parameters<LoaderFunction>["0"]) => {
@@ -21,11 +22,11 @@ export const loader = async ({ params }: Parameters<LoaderFunction>["0"]) => {
 
   const scrap = await getScrap(params.id);
   const comments = await getComments(params.id);
-  return { scrap, comments };
+  return { comments, scrap };
 };
 
 const ScrapId: VFC = () => {
-  const { scrap, comments } = useLoaderData<LoaderData>();
+  const { comments, scrap } = useLoaderData<LoaderData>();
   console.log(comments);
 
   return (

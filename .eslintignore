@@ -9,3 +9,4 @@
 # Auto-generated files
 /app/tailwind.css
 /remix.env.d.ts
+/types/supabase.ts
