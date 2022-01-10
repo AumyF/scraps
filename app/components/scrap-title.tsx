@@ -16,7 +16,7 @@ type Action =
 
 const initialState = { editting: false, content: "" };
 
-const reducer: Reducer<State, Action> = (prevState, action) => {
+const reducer: Reducer<State, Action> = (_, action) => {
   switch (action.type) {
     case "reset": {
       return initialState;
@@ -44,10 +44,10 @@ export const ScrapTitle: VFC<{ title: string; id: string }> = ({
           <input
             type="text"
             value={state.content}
-            onChange={(e) =>
+            onChange={(event) =>
               dispatch({
                 type: "update",
-                content: e.target.value,
+                content: event.target.value,
               })
             }
             className="flex-1 p-2"

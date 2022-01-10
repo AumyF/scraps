@@ -21,7 +21,7 @@ const NewScrap: VFC = () => {
         <input
           type="text"
           value={title}
-          onChange={(e) => setTitle(() => e.target.value)}
+          onChange={(event) => setTitle(() => event.target.value)}
         />
       </label>
       <Button
@@ -39,7 +39,7 @@ const NewScrap: VFC = () => {
             .single();
 
           setLoading(false);
-          if (p.body == null) return;
+          if (p.body == undefined) return;
           navigate(`/scraps/${p.body.id}`);
         }}
       >

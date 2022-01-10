@@ -2,7 +2,7 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { createContext, PropsWithChildren, useContext, VFC } from "react";
 
 export const SupabaseContext = createContext<SupabaseClient>(
-  null as unknown as SupabaseClient
+  undefined as unknown as SupabaseClient
 );
 
 export const SupabaseProvider: VFC<

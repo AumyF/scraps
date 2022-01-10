@@ -2,5 +2,10 @@
 /dist
 /public/build
 
+# CommonJS files
+/remix.config.js
+/tailwind.config.js
+
 # Auto-generated files
 /app/tailwind.css
+/remix.env.d.ts
