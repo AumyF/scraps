@@ -39,7 +39,7 @@ export const ScrapTitle: VFC<{ id: string, title: string; }> = ({
   const supabase = useSupabase();
 
   return (
-    <div className="flex justify-between gap-2">
+    <div className="flex gap-2 justify-between">
       {state.editting ? (
         <>
           <input

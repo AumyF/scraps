@@ -18,7 +18,7 @@ export const AddComment: VFC<{ scrapId: string }> = ({ scrapId }) => {
   return (
     <div className="card">
       <textarea
-        className="w-full p-2 rounded"
+        className="p-2 w-full rounded"
         id="new-comment"
         rows={10}
         placeholder="Add comment to the scrap"
