@@ -3,6 +3,7 @@ import { LoaderFunction, useLoaderData } from "remix";
 import { definitions } from "types/supabase";
 import { AddComment } from "~/components/add-comment";
 import { Layout } from "~/components/layout";
+import { ScrapTitle } from "~/components/scrap-title";
 import { getComments, getScrap } from "~/utils/scrap";
 
 type LoaderResult<T> = { error: unknown; data: T };
@@ -30,7 +31,7 @@ const ScrapId: VFC = () => {
   return (
     <Layout>
       <div className="py-2">
-        <h1 className="text-3xl font-bold">{scrap.data.title}</h1>
+        <ScrapTitle title={scrap.data.title} id={scrap.data.id} />
         <time>Created at {scrap.data.created_at}</time>
       </div>
       <div className="flex flex-col gap-2">
