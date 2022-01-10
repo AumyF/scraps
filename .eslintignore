@@ -1,0 +1,6 @@
+/build
+/dist
+/public/build
+
+# Auto-generated files
+/app/tailwind.css
