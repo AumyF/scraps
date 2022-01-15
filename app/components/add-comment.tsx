@@ -11,6 +11,7 @@ export const AddComment: VFC<{ scrapId: string }> = ({ scrapId }) => {
     await supabase.from<definitions["comments"]>("comments").insert({
       body,
       scrap_id: scrapId,
+      user_id: supabase.auth.user()?.id,
     });
     setBody(() => "");
   };
